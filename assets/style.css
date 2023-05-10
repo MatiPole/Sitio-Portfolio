@@ -1,0 +1,1091 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+@font-face {
+  font-family: "Calibre";
+  font-weight: 200;
+  src: url("font/calibre/calibrelight-webfont.woff2") format("woff2"),
+    url("font/calibre/calibrelight-webfont.woff") format("woff");
+}
+@font-face {
+  font-family: "Calibre";
+  font-weight: 400;
+  src: url("font/calibre/calibreregular-webfont.woff2") format("woff2"),
+    url("font/calibre/calibreregular-webfont.woff") format("woff");
+}
+@font-face {
+  font-family: "Calibre";
+  font-weight: 800;
+  src: url("font/calibre/calibrebold-webfont.woff2") format("woff2"),
+    url("font/calibre/calibrebold-webfont.woff") format("woff");
+}
+@font-face {
+  font-family: "Calibre";
+  font-weight: 600;
+  src: url("font/calibre/calibresemibold-webfont.woff2") format("woff2"),
+    url("font/calibre/calibresemibold-webfont.woff") format("woff");
+}
+@font-face {
+  font-family: "Montserrat";
+  font-weight: 400;
+  src: url("font/montserrat/Montserrat-Regular.ttf") format("truetype");
+}
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;600;800&display=swap");
+
+:root {
+  --dark-navy: #020c1b;
+  --navy: #0b1e3b;
+  --light-navy: #112240;
+  --lightest-navy: #233554;
+  --navy-shadow: rgba(2, 12, 27, 0.7);
+  --dark-slate: #495670;
+  --slate: #8892b0;
+  --light-slate: #a8b2d1;
+  --lightest-slate: #ccd6f6;
+  --white: #e6f1ff;
+  --green: #64ffda;
+  --fucsia: #cc3b84;
+  --card-width: 436px;
+  --card-heigth: 283px;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding: var(--scroll-padding, 5rem);
+}
+body {
+  font-family: "Calibre";
+  font-size: 1.25rem;
+  font-weight: 400;
+}
+
+section {
+  background-color: var(--white);
+}
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 9999;
+}
+
+/*  BURGER
+========================================== */
+.burger {
+  display: none;
+  width: 50px;
+  height: 50px;
+  position: fixed;
+  top: 20px;
+  right: 6%;
+  border-radius: 4px;
+  z-index: 10;
+  background-color: var(--dark-slate);
+}
+.burger span {
+  position: relative;
+  margin-top: 9px;
+  margin-bottom: 9px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -15px;
+  margin-top: -1.5px;
+}
+.burger span,
+.burger span::before,
+.burger span::after {
+  display: block;
+  width: 30px;
+  height: 3px;
+  background-color: var(--white);
+  outline: 1px solid transparent;
+  -webkit-transition-property: background-color, -webkit-transform;
+  -moz-transition-property: background-color, -moz-transform;
+  -o-transition-property: background-color, -o-transform;
+  transition-property: background-color, transform;
+  -webkit-transition-duration: 0.3s;
+  -moz-transition-duration: 0.3s;
+  -o-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+}
+.burger span::before,
+.burger span::after {
+  position: absolute;
+  content: "";
+}
+.burger span::before {
+  top: -9px;
+}
+.burger span::after {
+  top: 9px;
+}
+.burger.clicked span {
+  background-color: transparent;
+}
+.burger.clicked span::before {
+  -webkit-transform: translateY(9px) rotate(45deg);
+  -moz-transform: translateY(9px) rotate(45deg);
+  -ms-transform: translateY(9px) rotate(45deg);
+  -o-transform: translateY(9px) rotate(45deg);
+  transform: translateY(9px) rotate(45deg);
+}
+.burger.clicked span::after {
+  -webkit-transform: translateY(-9px) rotate(-45deg);
+  -moz-transform: translateY(-9px) rotate(-45deg);
+  -ms-transform: translateY(-9px) rotate(-45deg);
+  -o-transform: translateY(-9px) rotate(-45deg);
+  transform: translateY(-9px) rotate(-45deg);
+}
+.burger.clicked span:before,
+.burger.clicked span:after {
+  background-color: var(--white);
+}
+.burger:hover {
+  cursor: pointer;
+}
+
+/*  MENU HAMBURGUESA
+========================================== */
+.nav-burger {
+  background-color: rgb(33, 45, 85);
+  filter: drop-shadow(0px 0px 5px #333333);
+  position: fixed;
+  display: none;
+  flex-direction: column;
+  z-index: 9;
+  top: 0;
+  right: 0;
+  height: 100%;
+  max-width: 380px;
+  width: 100%;
+  padding: 100px 40px 60px 40px;
+  /*   overflow-y: auto; */
+  -webkit-transform: translateX(100%);
+  -moz-transform: translateX(100%);
+  -ms-transform: translateX(100%);
+  -o-transform: translateX(100%);
+  transform: translateX(100%);
+  -webkit-transition: transform 0.55s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+  -moz-transition: transform 0.55s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+  -o-transition: transform 0.55s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+  transition: transform 0.55s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+}
+.nav-burger.show {
+  -webkit-transform: translateX(0px);
+  -moz-transform: translateX(0px);
+  -ms-transform: translateX(0px);
+  -o-transform: translateX(0px);
+  transform: translateX(0px);
+}
+.ul-burger {
+  flex-direction: column;
+}
+.nav-burger.show ul.ul-burger li {
+  -webkit-transform: translateX(0px);
+  -moz-transform: translateX(0px);
+  -ms-transform: translateX(0px);
+  -o-transform: translateX(0px);
+  transform: translateX(0px);
+  opacity: 1;
+}
+
+.nav-burger.show .about {
+  -webkit-transform: translateY(0px);
+  -moz-transform: translateY(0px);
+  -ms-transform: translateY(0px);
+  -o-transform: translateY(0px);
+  transform: translateY(0px);
+  opacity: 1;
+  transition-delay: 0.85s;
+}
+@media (min-width: 667px) {
+  .nav-burger {
+    padding: 80px 90px 70px 90px;
+  }
+}
+.nav-burger ul.ul-burger {
+  list-style-type: none;
+}
+.nav-burger ul.ul-burger li {
+  margin-bottom: 20px;
+  -webkit-transform: translateX(40px);
+  -moz-transform: translateX(40px);
+  -ms-transform: translateX(40px);
+  -o-transform: translateX(40px);
+  transform: translateX(40px);
+  opacity: 0;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+.nav-burger ul.ul-burger li:last-of-type {
+  margin-bottom: 0px;
+}
+.nav-burger ul.ul-burger li a {
+  color: var(--white);
+  font-family: "Calibre", sans-serif;
+  text-decoration: none;
+  font-size: 1.5rem;
+  display: block;
+  letter-spacing: 3px;
+  font-weight: 600;
+  padding: 10px 0;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.nav-burger ul.ul-burger li a:active {
+  color: var(--fucsia);
+}
+
+/*  OVERLAY
+========================================== */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  opacity: 0;
+  visibility: hidden;
+}
+.overlay.show {
+  opacity: 0.8;
+  visibility: visible;
+}
+/* FIN MENU HAMBURGUESA */
+
+nav {
+  color: var(--white);
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-block: 2rem;
+  background-color: var(--navy);
+}
+
+nav a {
+  color: var(--white);
+  text-decoration: none;
+}
+
+nav ul {
+  display: flex;
+  column-gap: 2rem;
+  margin-right: 4rem;
+}
+
+li {
+  list-style: none;
+  position: relative;
+}
+
+#ul-nav li a:hover:not(.curriculum-dl)::before {
+  content: "";
+  height: 10%;
+  position: absolute;
+  display: block;
+  width: 100%;
+  background: var(--green);
+  top: 120%;
+}
+
+h1 {
+  margin-left: 4rem;
+  font-size: 2rem;
+  text-align: center;
+  font-weight: 400;
+}
+
+h1 a span {
+  color: var(--green);
+}
+
+.curriculum-dl {
+  color: var(--green);
+  border: 2px solid var(--green);
+  padding: 0.8rem !important;
+  padding-top: 1rem;
+}
+
+.curriculum-dl:hover {
+  background-color: #64ffda;
+  color: #020c1b;
+}
+
+main {
+  background-color: var(--light-navy);
+}
+
+.section-presentation {
+  background-image: url(img/background-presentation.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: #e5e5e5;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-block: 10rem;
+}
+
+.div-hello p {
+  font-size: 3rem;
+  font-weight: 200;
+}
+
+h2 {
+  color: var(--white);
+  font-weight: 400;
+  font-size: 3rem;
+  padding-left: 5rem;
+  filter: drop-shadow(5px 11px 5px #000);
+}
+
+.animation-text {
+  position: relative;
+  width: 500px;
+}
+
+.first,
+.second {
+  position: absolute;
+  transform: translateY(-50%);
+}
+.first h2,
+.second h2 {
+  color: var(--green);
+  animation: text-animation-1 6s infinite;
+  width: max-content;
+  filter: drop-shadow(0px 5px 5px #000);
+}
+.second h2 {
+  color: var(--fucsia);
+  animation: text-animation-2 6s infinite;
+}
+
+@keyframes text-animation-1 {
+  0% {
+    transform: translateY(4rem);
+    opacity: 1;
+  }
+  10% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  40% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  55% {
+    transform: translateY(-8rem);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(-8rem);
+    opacity: 0;
+  }
+}
+
+@keyframes text-animation-2 {
+  0% {
+    transform: translateY(8rem);
+    opacity: 0;
+  }
+
+  40% {
+    transform: translateY(6rem);
+    opacity: 0;
+  }
+  50% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  70% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+}
+
+.container-img-perfil {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.img-perfil {
+  position: relative;
+}
+.img-perfil img {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 200px;
+  border-radius: 50%;
+}
+
+h3 {
+  text-transform: uppercase;
+  color: var(--fucsia);
+  font-weight: 600;
+  font-size: 3rem;
+}
+
+.div-h3-sobremi {
+  padding-block: 4rem 2rem;
+}
+
+.div-p-sobremi {
+  margin-inline: 12rem;
+  padding-bottom: 4rem;
+}
+
+.div-p-sobremi p {
+  font-family: "Montserrat";
+  color: var(--dark-navy);
+  font-size: 1.25rem;
+  font-weight: 400;
+  line-height: 1.7rem;
+}
+/* HABILIDADES */
+.section-habilidades {
+  background-color: var(--dark-navy);
+  padding-bottom: 4rem;
+}
+
+.div-h3 {
+  margin-left: 12rem;
+  padding-block: 2rem;
+}
+
+.title-green {
+  color: var(--green);
+}
+
+.container-habilidades {
+  display: flex;
+  justify-content: center;
+  column-gap: 4rem;
+}
+
+h4 {
+  color: var(--fucsia);
+  padding-bottom: 2rem;
+  font-family: "Montserrat";
+  font-weight: 400;
+  text-align: center;
+}
+
+.container-habilidades ul {
+  display: flex;
+  flex-direction: column;
+}
+
+.container-habilidades ul li {
+  color: var(--white);
+  font-family: "Montserrat";
+  font-size: 1rem;
+  padding-bottom: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  column-gap: 5rem;
+}
+
+.container-habilidades ul li span {
+  padding: 0.6rem 0.6rem 0.6rem 0.6rem;
+}
+
+.avanzado {
+  border: 2px solid rgb(236, 56, 56);
+}
+
+.intermedio {
+  border: 2px solid rgb(236, 158, 56);
+}
+
+.basico {
+  border: 2px solid rgb(167, 236, 56);
+}
+
+/* PROYECTOS */
+.section-proyectos {
+  padding-bottom: 4rem;
+  background-color: var(--navy);
+}
+
+.div-h3-proyectos h3 {
+  color: var(--green);
+}
+
+/* CARDS */
+
+.container-cards {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  column-gap: 5.5rem;
+  row-gap: 3rem;
+}
+
+.card {
+  width: var(--card-width);
+  height: var(--card-heigth);
+  background: radial-gradient(#111 50%, #000 100%);
+  overflow: hidden;
+  position: relative;
+  border: 5px solid var(--fucsia);
+  cursor: pointer;
+  box-shadow: 0px 0px 20px 6px rgba(204, 59, 132, 0.5);
+  -webkit-box-shadow: 0px 0px 20px 6px rgba(204, 59, 132, 0.5);
+  -moz-box-shadow: 0px 0px 20px 6px rgba(204, 59, 132, 0.5);
+}
+.card img {
+  max-width: 100%;
+  display: block;
+  transform: scale(1.5);
+  transition: all 0.3s ease-out;
+}
+.card:hover img {
+  transform: scale(1.2) translateY(-10px);
+  opacity: 0.2;
+}
+.card .content {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  padding: 15px;
+  padding-bottom: 40px;
+  text-align: center;
+  color: #fff;
+  font-size: 16px;
+}
+.card .content h3 {
+  font-weight: 500;
+  font-weight: 600;
+  font-size: 1.5rem;
+  margin: 0 0 20px;
+  transform: translateY(30px);
+  opacity: 0;
+  transition: all 0.3s ease-out;
+}
+
+.titulo-proyecto {
+  position: absolute;
+  top: 0;
+  color: var(--white);
+  font-weight: 400;
+  background-color: var(--fucsia);
+  padding: 0.5rem;
+  border-radius: 0 0 20px 0;
+  transition: all 0.2s ease-out;
+}
+.card .content p {
+  margin-bottom: 1.1rem;
+  transform: translateY(30px);
+  opacity: 0;
+  transition: all 0.3s ease-out;
+}
+.card .content a {
+  font-family: "Montserrat";
+  font-size: 0.8rem;
+  color: #ffffff;
+  background: var(--fucsia);
+  display: inline-block;
+  padding: 0.4rem 0.8rem;
+  text-decoration: none;
+  border-radius: 5px;
+  transform: translateY(30px);
+  opacity: 0;
+  transition: all 0.3s ease-out;
+}
+.card .content a:hover {
+  background: #882356;
+  color: #fff;
+  scale: 1.1;
+}
+.card:hover .content h3,
+.card:hover .content p,
+.card:hover .content a {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.card:hover .titulo-proyecto {
+  opacity: 0;
+}
+
+/* ESTUDIOS */
+#estudios {
+  padding-bottom: 4rem;
+}
+
+.div-estudios {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+  column-gap: 5rem;
+}
+
+.div-estudios div {
+  padding-bottom: 2rem;
+  width: 500px;
+}
+
+.div-estudios div h4 {
+  font-family: "Montserrat";
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--green);
+  background-color: var(--dark-navy);
+  padding-block: 1.5rem;
+  border-radius: 15px 15px 0 0;
+}
+.info-estudios {
+  border-bottom: 2px solid var(--dark-slate);
+  border-left: 2px solid var(--dark-slate);
+  border-right: 2px solid var(--dark-slate);
+  border-radius: 0px 0px 10px 10px;
+  padding: 1rem 15px 15px 15px;
+}
+
+.div-estudios div h5 {
+  color: var(--dark-navy);
+  font-family: "Montserrat";
+  font-weight: 600;
+  font-size: 1.1rem;
+  padding-bottom: 1rem;
+}
+
+.div-estudios div h5 span {
+  color: var(--white);
+  background-color: var(--lightest-navy);
+  padding: 0.2rem 0.5rem;
+  border-radius: 10px;
+  margin-left: 5px;
+  font-weight: 200;
+  width: fit-content;
+}
+
+.div-estudios p {
+  font-family: "Montserrat";
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.scroll-title {
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+@keyframes escribir {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+/* RESPONSIVE */
+
+@media (min-width: 1200px) {
+  #boton-ver-mas,
+  .ver-mas-habilidades {
+    display: none;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+  #boton-ver-mas,
+  .ver-mas-habilidades {
+    display: none;
+  }
+}
+
+/* MEDIA TABLET---
+--------- */
+
+@media (min-width: 768px) and (max-width: 991px) {
+  .nav-burger {
+    display: flex;
+  }
+  nav ul {
+    margin-right: -2rem;
+  }
+  .burger {
+    display: block;
+  }
+  #main-nav {
+    display: none;
+  }
+  section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  /* MENU-HAMBURGUESA */
+
+  .curriculum-dl {
+    color: var(--white) !important;
+    box-sizing: content-box;
+    border: 2px var(--green) solid;
+    padding: 0.5rem 1rem !important;
+    padding-top: 1rem;
+    transform: translateX(-1rem);
+  }
+
+  .curriculum-dl:hover {
+    background-color: none;
+    color: var(--white) !important;
+  }
+
+  /* HERO */
+  .section-presentation {
+    padding-block: 4rem 9rem;
+  }
+
+  .div-hello p {
+    font-size: 2.6rem;
+    font-weight: 200;
+  }
+
+  h2 {
+    font-size: 2.6rem;
+    padding-left: 0;
+  }
+
+  .animation-text {
+    width: 300px;
+    display: flex;
+    justify-content: center;
+    padding-top: 2rem;
+  }
+  /* SOBRE MI */
+  #sobremi {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 2rem;
+  }
+  .div-h3-sobremi {
+    padding-top: 8rem;
+    margin-left: 0;
+  }
+  .div-h3 {
+    margin-left: 0;
+  }
+  .div-p-sobremi {
+    margin-inline: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  #boton-ver-mas,
+  .ver-mas-habilidades {
+    margin-top: 1rem;
+    width: fit-content;
+    font-size: 1.2rem !important;
+    text-align: center !important;
+    font-family: "Montserrat";
+    font-weight: 600;
+    color: var(--white);
+    padding: 0.6rem 1rem;
+    background-color: var(--fucsia);
+    border: none;
+    border-radius: 0.3rem;
+  }
+
+  #boton-ver-mas {
+    padding-inline: 3rem;
+  }
+
+  .ver-mas-habilidades {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+  }
+
+  /* HABILIDADES */
+  .container-habilidades {
+    flex-direction: column;
+    align-items: center;
+  }
+  .container-habilidades div {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+  .container-habilidades div:not(:first-child) {
+    margin-top: 1rem;
+  }
+  .h4Habilidades {
+    padding-bottom: 1.2rem;
+  }
+
+  /* ACORDEON */
+
+  .accordion {
+    color: #eee;
+    cursor: pointer;
+    width: 100%;
+    border: 1px solid #222;
+    outline: none;
+    font-size: 1rem;
+    transition: all 0.6s ease-out;
+    box-shadow: 0px 0px 15px 3px rgba(204, 59, 132, 0.5);
+    -webkit-box-shadow: 0px 0px 15px 3px rgba(204, 59, 132, 0.5);
+    -moz-box-shadow: 0px 0px 15px 3px rgba(204, 59, 132, 0.5);
+  }
+
+  .accordion:nth-last-child(1):hover {
+    background: var(--fucsia);
+  }
+
+  .accordion::after {
+    content: "+";
+    color: var(--white);
+  }
+
+  .active::after {
+    content: "-";
+    color: var(--white);
+  }
+
+  .accordion-content {
+    padding: 0 1rem;
+    color: #aaa;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.7s ease-out;
+  }
+  .accordion-content-sobreMi {
+    max-height: 150px;
+  }
+
+  /* PROYECTOS */
+  .card .content h3 {
+    margin: 0 0 10px;
+  }
+  /* ESTUDIOS */
+  .div-estudios div {
+    width: 300px;
+  }
+  .info-estudios h5 {
+    display: flex;
+    flex-direction: column;
+  }
+  .info-estudios h5 span {
+    margin-top: 0.2rem;
+    margin-left: 0 !important;
+  }
+}
+
+/* MEDIA CELULAR---
+--------- */
+
+@media (max-width: 767px) {
+  .nav-burger {
+    display: flex;
+    max-width: 250px;
+  }
+  .burger {
+    display: block;
+  }
+  .nav-burger ul.ul-burger li a {
+    font-size: 1.2rem;
+  }
+  #main-nav {
+    display: none;
+  }
+  section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  /* MENU-HAMBURGUESA */
+  nav ul {
+    margin-right: -2rem;
+  }
+  .curriculum-dl {
+    color: var(--white) !important;
+    box-sizing: content-box;
+    border: 2px var(--green) solid;
+    padding: 0.5rem 1rem !important;
+    padding-top: 1rem;
+    transform: translateX(-1rem);
+  }
+
+  .curriculum-dl:hover {
+    background-color: none;
+    color: var(--white) !important;
+  }
+  /* HERO */
+  .section-presentation {
+    padding-block: 6rem 9rem;
+  }
+
+  .div-hello p {
+    font-size: 2.2rem;
+    font-weight: 200;
+  }
+
+  h2 {
+    font-size: 2.2rem;
+    padding-left: 0;
+  }
+
+  .animation-text {
+    width: 300px;
+    display: flex;
+    justify-content: center;
+    padding-top: 2rem;
+  }
+
+  /* SOBRE MI */
+  #sobremi {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 2rem;
+  }
+  .div-p-sobremi {
+    margin-inline: 2rem;
+  }
+  .div-h3-sobremi {
+    padding-top: 8rem;
+    margin-left: 0;
+  }
+  .div-h3 {
+    margin-left: 0;
+  }
+  .div-p-sobremi {
+    margin-inline: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .div-p-sobremi p {
+    font-size: 1rem;
+  }
+  #boton-ver-mas,
+  .ver-mas-habilidades {
+    margin-top: 1rem;
+    width: fit-content;
+    font-size: 1.1rem;
+    font-family: "Montserrat";
+    font-weight: 600;
+    color: var(--white);
+    padding: 0.6rem 1rem;
+    background-color: var(--fucsia);
+    border: none;
+    border-radius: 0.3rem;
+  }
+
+  #boton-ver-mas {
+    padding-inline: 3rem;
+  }
+
+  /* HABILIDADES */
+  .container-habilidades {
+    flex-direction: column;
+    align-items: center;
+  }
+  .container-habilidades div {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+  .container-habilidades div:not(:first-child) {
+    margin-top: 1rem;
+  }
+  .h4Habilidades {
+    padding-bottom: 1.2rem;
+  }
+
+  /* ACORDEON */
+
+  .accordion {
+    color: #eee;
+    cursor: pointer;
+    width: 100%;
+    border: 1px solid #222;
+    outline: none;
+    font-size: 1rem;
+    transition: all 0.6s ease-out;
+    box-shadow: 0px 0px 15px 3px rgba(204, 59, 132, 0.5);
+    -webkit-box-shadow: 0px 0px 15px 3px rgba(204, 59, 132, 0.5);
+    -moz-box-shadow: 0px 0px 15px 3px rgba(204, 59, 132, 0.5);
+  }
+
+  .accordion:nth-last-child(1):hover {
+    background: var(--fucsia);
+  }
+
+  .accordion::after {
+    content: "+";
+    color: var(--white);
+  }
+
+  .active::after {
+    content: "-";
+    color: var(--white);
+  }
+
+  .accordion-content {
+    padding: 0 1rem;
+    color: #aaa;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.7s ease-out;
+  }
+  .accordion-content-sobreMi {
+    max-height: 150px;
+  }
+
+  /* PROYECTOS */
+  .card {
+    width: calc((var(--card-width)) * 0.6);
+    height: calc((var(--card-heigth)) * 0.6);
+  }
+  .card .content h3 {
+    margin: 0 0 10px;
+  }
+  /* ESTUDIOS */
+  .div-estudios div {
+    width: 300px;
+  }
+
+  .info-estudios h5 {
+    display: flex;
+    flex-direction: column;
+  }
+  .info-estudios h5 span {
+    margin-top: 0.2rem;
+    margin-left: 0 !important;
+    width: fit-content;
+  }
+}

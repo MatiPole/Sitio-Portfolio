@@ -1,0 +1,16 @@
+{
+  "folders": [
+    {
+      "path": "."
+    }
+  ],
+  "settings": {
+    "workbench.colorCustomizations": {
+      "activityBar.background": "#3A2645",
+      "titleBar.activeBackground": "#513561",
+      "titleBar.activeForeground": "#FBF9FC"
+    },
+    "liveServer.settings.multiRootWorkspaceName": "Sitio-portfolio",
+    "git.ignoreLimitWarning": true
+  }
+}
