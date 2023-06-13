@@ -1288,6 +1288,7 @@ footer {
   color: var(--white);
   display: flex;
   align-items: center;
+  text-align: center;
 }
 .redes figure {
   max-width: 300px;
