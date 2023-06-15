@@ -70,15 +70,15 @@ const arrayHabilidades = [
       },
       habilidad_4: {
         tipo: "PHP",
-        nivel: "Básico",
+        nivel: "Intermedio",
       },
       habilidad_5: {
         tipo: "WordPress",
-        nivel: "Básico",
+        nivel: "Intermedio",
       },
       habilidad_6: {
-        tipo: "React.js",
-        nivel: "Básico",
+        tipo: "PWA",
+        nivel: "Intermedio",
       },
       habilidad_7: {
         tipo: "Vue.js",
