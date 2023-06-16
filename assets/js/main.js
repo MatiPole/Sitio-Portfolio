@@ -231,7 +231,7 @@ function validateValue(input, value) {
   }
 
   if (input.id === "comments") {
-    return value.length >= 50;
+    return value.length >= 20;
   }
 
   return true;
@@ -251,7 +251,7 @@ function getErrorMessage(input) {
   }
 
   if (input.id === "comments") {
-    return "El mensaje debe tener al menos 50 caracteres.";
+    return "El mensaje debe tener al menos 20 caracteres.";
   }
 
   return "";
