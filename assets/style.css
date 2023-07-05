@@ -1256,6 +1256,25 @@ label span {
   color: #999;
 }
 
+#modal-mensaje {
+  background-color: white;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 5px;
+  padding: 1rem;
+  position: absolute;
+}
+
+#modal-mensaje h5 {
+  font-family: var(--ff-montserrat);
+  margin-bottom: 1rem;
+}
+
+#modal-mensaje img {
+  width: 50px;
+}
+
 /* FOOTER */
 footer {
   background-color: var(--dark-navy);

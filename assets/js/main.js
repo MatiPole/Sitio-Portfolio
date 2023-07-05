@@ -278,3 +278,29 @@ function isValidPhone(phone) {
   const phoneRegex = /^\d+$/;
   return phoneRegex.test(phone);
 }
+
+$(document).ready(function () {
+  // Escucha el evento de envío del formulario
+  $("form").on("submit", function (e) {
+    e.preventDefault(); // Evita el envío normal del formulario
+
+    // Envía la solicitud AJAX al archivo PHP
+    $.ajax({
+      type: "POST",
+      url: "assets/mail.php",
+      data: $(this).serialize(), // Envía los datos del formulario
+      success: function (response) {
+        // Muestra el modal de confirmación
+        $("#modal-mensaje").show().css("display", "flex");
+
+        // Cierra el modal después de 3 segundos (puedes ajustar este valor según tus necesidades)
+        setTimeout(function () {
+          $("#modal-mensaje").hide();
+        }, 3000);
+
+        // Restablece el formulario
+        $("form")[0].reset();
+      },
+    });
+  });
+});

@@ -33,6 +33,7 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;600;800&display=swap"
     />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <title>Portfolio Matias Poletto</title>
   </head>
   <body>
@@ -242,7 +243,13 @@
         </div>
       </section>
       <section class="contact-us" id="contacto">
-        <form id="contactForm" autocomplete="on" method="GET" novalidate>
+        <form
+          id="contactForm"
+          autocomplete="on"
+          method="POST"
+          action="assets/mail.php"
+          novalidate
+        >
           <div class="div-contacto">
             <h3 class="h3-contacto">CONTACTO</h3>
           </div>
@@ -312,6 +319,13 @@
             <span class="obligatorio"> * </span>los campos son obligatorios.
           </p>
         </form>
+        <div id="modal-mensaje" style="display: none">
+          <h5>¡Mensaje enviado!</h5>
+          <img
+            src="assets/img/check-enviado.png"
+            alt="check de mensaje enviado"
+          />
+        </div>
       </section>
     </main>
     <footer>
