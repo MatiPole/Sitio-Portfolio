@@ -393,7 +393,7 @@ h2 {
   color: var(--fucsia);
   animation: text-animation-2 6s infinite;
 }
-
+/* ANIMACION HOLA SOY ----------------------------- */
 @keyframes text-animation-1 {
   0% {
     transform: translateY(4rem);
@@ -458,7 +458,7 @@ h2 {
   width: 200px;
   border-radius: 50%;
 }
-
+/* SOBRE MI ----------------------------- */
 h3 {
   text-transform: uppercase;
   color: var(--fucsia);
@@ -482,7 +482,7 @@ h3 {
   font-weight: 400;
   line-height: 1.7rem;
 }
-/* HABILIDADES */
+/* HABILIDADES ----------------*/
 .section-habilidades {
   background-color: var(--dark-navy);
   padding-bottom: 4rem;
@@ -744,8 +744,7 @@ h4 {
   }
 }
 
-/* MEDIA TABLET---
---------- */
+/* MEDIA TABLET----------------------------------------------------------------- */
 
 @media (min-width: 768px) and (max-width: 991px) {
   .nav-burger {
@@ -921,8 +920,7 @@ h4 {
   }
 }
 
-/* MEDIA CELULAR---
---------- */
+/* MEDIA CELULAR-------------------------------------------------------------------- */
 
 @media (max-width: 767px) {
   .nav-burger {
@@ -1297,7 +1295,7 @@ footer {
   padding-top: 0.5rem;
 }
 
-.redes,
+.redes-sociales,
 .copyright,
 .info-contacto {
   padding-top: 1rem;
@@ -1309,17 +1307,24 @@ footer {
   align-items: center;
   text-align: center;
 }
-.redes figure {
-  max-width: 300px;
+.redes-sociales {
   display: flex;
-}
-.redes figure a img {
-  max-width: 100%;
-  height: auto;
+  column-gap: 2rem;
 }
 
-.redes figure a {
-  margin-inline: 1rem;
+.redes-sociales div a {
+  display: flex;
+  width: 70px;
+  height: 70px;
+}
+
+.redes-sociales div a img {
+  max-width: 100%;
+  height: auto;
+  transition-duration: 0.5s;
+}
+.redes-sociales div a img:hover {
+  transform: scale(1.1) translateY(-5px);
 }
 
 @media (max-width: 768px) {
@@ -1333,5 +1338,10 @@ footer {
   }
   .info-contacto {
     text-align: center;
+  }
+  .redes-sociales div a {
+    display: flex;
+    width: 50px;
+    height: 50px;
   }
 }
