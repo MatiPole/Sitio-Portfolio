@@ -290,13 +290,13 @@ $(document).ready(function () {
       url: "assets/mail.php",
       data: $(this).serialize(), // Envía los datos del formulario
       success: function (response) {
-        // Muestra el modal de confirmación
-        $("#modal-mensaje").show().css("display", "flex");
-
-        // Cierra el modal después de 3 segundos (puedes ajustar este valor según tus necesidades)
-        setTimeout(function () {
-          $("#modal-mensaje").hide();
-        }, 3000);
+        // Muestra la alerta de SweetAlert
+        swal({
+          title: "¡Mensaje enviado!",
+          text: "Tu mensaje se ha enviado correctamente.",
+          icon: "success",
+          button: "Aceptar",
+        });
 
         // Restablece el formulario
         $("form")[0].reset();
