@@ -1171,6 +1171,8 @@ label span {
   border-radius: 5px;
   border: none;
   font-family: var(--ff-montserrat);
+  font-size: 1rem;
+  font-weight: 500;
 }
 
 .contact-us form input {
