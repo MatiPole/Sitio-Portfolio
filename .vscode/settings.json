@@ -4,5 +4,6 @@
     "titleBar.activeBackground": "#513561",
     "titleBar.activeForeground": "#FBF9FC"
   },
-  "git.ignoreLimitWarning": true
+  "git.ignoreLimitWarning": true,
+  "liveServer.settings.port": 5501
 }

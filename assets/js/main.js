@@ -73,14 +73,18 @@ const arrayHabilidades = [
         nivel: "Intermedio",
       },
       habilidad_5: {
-        tipo: "WordPress",
+        tipo: "MySQL",
         nivel: "Intermedio",
       },
       habilidad_6: {
-        tipo: "PWA",
+        tipo: "WordPress",
         nivel: "Intermedio",
       },
       habilidad_7: {
+        tipo: "PWA",
+        nivel: "Intermedio",
+      },
+      habilidad_8: {
         tipo: "Vue.js",
         nivel: "Básico",
       },
