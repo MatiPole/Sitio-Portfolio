@@ -288,6 +288,15 @@ $(document).ready(function () {
   $("form").on("submit", function (e) {
     e.preventDefault(); // Evita el envío normal del formulario
 
+    // Validate the form before submitting
+    if (!validateForm()) {
+      // Show an error message or handle the error as you prefer
+      console.log(
+        "Form validation failed. Please fill out all required fields correctly."
+      );
+      return;
+    }
+
     // Envía la solicitud AJAX al archivo PHP
     $.ajax({
       type: "POST",
@@ -304,6 +313,10 @@ $(document).ready(function () {
 
         // Restablece el formulario
         $("form")[0].reset();
+      },
+      error: function (xhr, status, error) {
+        // Handle the error if the AJAX request fails
+        console.log("Error submitting the form: ", error);
       },
     });
   });
