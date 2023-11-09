@@ -54,39 +54,60 @@ let containerHabilidades = d.querySelector("#container-habilidades");
 //ARRAY habilidades
 const arrayHabilidades = [
   {
-    categoria: "DESARROLLO WEB",
+    categoria: "FRONTEND",
     habilidades: {
       habilidad_1: {
-        tipo: "HTML",
+        tipo: "HTML y CSS",
         nivel: "Avanzado",
       },
       habilidad_2: {
-        tipo: "CSS",
+        tipo: "JavaScript",
         nivel: "Avanzado",
       },
       habilidad_3: {
-        tipo: "JavaScript",
-        nivel: "Intermedio",
+        tipo: "Tailwind",
+        nivel: "Avanzado",
       },
       habilidad_4: {
-        tipo: "PHP",
+        tipo: "React.js",
         nivel: "Intermedio",
       },
       habilidad_5: {
-        tipo: "MySQL",
+        tipo: "Vue.js",
         nivel: "Intermedio",
       },
       habilidad_6: {
         tipo: "WordPress",
         nivel: "Intermedio",
       },
-      habilidad_7: {
-        tipo: "PWA",
+    },
+  },
+  {
+    categoria: "BACKEND",
+    habilidades: {
+      habilidad_1: {
+        tipo: "MySQL",
+        nivel: "Avanzado",
+      },
+      habilidad_2: {
+        tipo: "MongoDB",
+        nivel: "Avanzado",
+      },
+      habilidad_3: {
+        tipo: "Node.js",
+        nivel: "Avanzado",
+      },
+      habilidad_4: {
+        tipo: "PHP",
         nivel: "Intermedio",
       },
-      habilidad_8: {
-        tipo: "Vue.js",
-        nivel: "Básico",
+      habilidad_5: {
+        tipo: "Laravel",
+        nivel: "Intermedio",
+      },
+      habilidad_6: {
+        tipo: "PWA",
+        nivel: "Intermedio",
       },
     },
   },
@@ -235,7 +256,7 @@ function validateValue(input, value) {
   }
 
   if (input.id === "comments") {
-    return value.length >= 20;
+    return value.length >= 1;
   }
 
   return true;
@@ -255,7 +276,7 @@ function getErrorMessage(input) {
   }
 
   if (input.id === "comments") {
-    return "El mensaje debe tener al menos 20 caracteres.";
+    return "Este campo no puede quedar vacío";
   }
 
   return "";

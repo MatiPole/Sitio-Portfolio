@@ -45,8 +45,8 @@
   --light-slate: #a8b2d1;
   --lightest-slate: #ccd6f6;
   --white: #e6f1ff;
-  --green: #64ffda;
-  --fucsia: #cc3b84;
+  --green: #4adfbc;
+  --fucsia: #ac2b6b;
   --card-width: 436px;
   --card-heigth: 283px;
   --ff-montserrat: "Montserrat";
@@ -501,6 +501,9 @@ h3 {
   display: flex;
   justify-content: center;
   column-gap: 4rem;
+  flex-wrap: wrap;
+  max-width: 1000px;
+  margin-inline: auto;
 }
 
 h4 {
@@ -546,7 +549,7 @@ h4 {
 /* PROYECTOS */
 .section-proyectos {
   padding-bottom: 4rem;
-  background-color: var(--navy);
+  background-color: var(--dark-navy);
 }
 
 .div-h3-proyectos h3 {
@@ -1141,7 +1144,7 @@ label span {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background-color: var(--dark-slate);
+  background-color: var(--navy);
 }
 
 .contact-us form {
@@ -1178,10 +1181,8 @@ label span {
 .contact-us form input {
   padding: 0.75rem;
   font-size: 1rem;
-  border: none;
   background: none;
-  border-bottom: 2px solid var(--green);
-  outline: none;
+  border: 2px solid var(--green);
   color: #ffffff;
   font-weight: 400;
   font-family: var(--ff-montserrat);
@@ -1282,6 +1283,7 @@ footer {
 .copyright,
 .info-contacto {
   padding-top: 1rem;
+  max-width: 250px;
 }
 
 .copyright {
