@@ -70,7 +70,7 @@ const arrayHabilidades = [
       },
       habilidad_4: {
         tipo: "React.js",
-        nivel: "Intermedio",
+        nivel: "Avanzado",
       },
       habilidad_5: {
         tipo: "Vue.js",

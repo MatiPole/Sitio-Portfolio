@@ -11,7 +11,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   
   $headers = "MIME-Version: 1.0" . "\r\n";
   $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
- 
+  $headers .= "From: contacto@matiaspoletto.com.ar" . "\r\n"; // Añade la cabecera From
+  $headers .= "Reply-To: contacto@matiaspoletto.com.ar" . "\r\n"; // Añade la cabecera Reply-To
 
   $body = '
   <html lang="en">
@@ -148,3 +149,5 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   }
 }
 ?>
+
+

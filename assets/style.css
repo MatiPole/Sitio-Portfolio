@@ -342,7 +342,7 @@ main {
 
 .section-presentation {
   position: relative;
-  background-image: url(img/background-presentation.png);
+  background-image: url(img/background-presentation.webp);
   background-size: cover;
   background-repeat: no-repeat;
   color: #e5e5e5;
@@ -1234,12 +1234,12 @@ label span {
 
 .form-control.error input,
 .form-control.error textarea {
-  border-bottom: 2px solid rgb(223, 36, 36);
+  border: 2px solid rgb(223, 36, 36);
 }
 
 .form-control.success input,
 .form-control.success textarea {
-  border-bottom: 2px solid rgb(1, 187, 1);
+  border: 2px solid rgb(1, 187, 1);
 }
 
 .form-control small {
