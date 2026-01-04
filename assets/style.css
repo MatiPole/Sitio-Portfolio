@@ -965,6 +965,7 @@ footer {
 
   .hero-description {
     font-size: 1rem;
+    text-align: left;
   }
 
   section {
@@ -993,6 +994,11 @@ footer {
 
   .footer-content {
     flex-direction: column;
+    text-align: center;
+    align-items: center;
+  }
+
+  .info-contacto {
     text-align: center;
   }
 }
