@@ -1,344 +1,306 @@
-//Sticky menu
+// Sticky menu
 const navigation = document.querySelector("#main-nav");
+if (navigation) {
+  const navigationHeight = navigation.offsetHeight;
+  document.documentElement.style.setProperty(
+    "--scroll-padding",
+    navigationHeight + "px"
+  );
+}
 
-const navigationHeight = navigation.offsetHeight;
-
-document.documentElement.style.setProperty(
-  "--scroll-padding",
-  navigationHeight - 5 + "px"
-);
-
-//MENU HAMBURGUESA
+// MENU HAMBURGUESA
 $(".burger, .overlay, .li-burger").click(function () {
   $(".burger").toggleClass("clicked");
   $(".overlay").toggleClass("show");
-  $("nav").toggleClass("show");
+  $(".nav-burger").toggleClass("show");
 });
 
-const delayLiBurguer = 0.15; // El valor base para transition-delay
-$(".ul-burger li").each(function (index) {
-  $(this).css("transition-delay", delayLiBurguer * (index + 1) + "s");
+// Cerrar menú al hacer clic en un enlace
+$(".li-burger a").click(function () {
+  $(".burger").removeClass("clicked");
+  $(".overlay").removeClass("show");
+  $(".nav-burger").removeClass("show");
 });
 
-//ANIMACION TITULOS
-
-const titulosAnimation = document.querySelectorAll(".scroll-title");
-
-let observerTitulo = new IntersectionObserver((entries) => {
-  entries.forEach((entry) => {
-    if (entry.intersectionRatio > 0) {
-      const windowWidth = window.innerWidth;
-      let duration = "3s";
-      if (windowWidth <= 768) {
-        duration = "0.7s";
-      }
-      entry.target.style.animation = `escribir ${duration} steps(40, end)`;
-    } else {
-      entry.target.style.animation = "none";
-    }
-  });
-});
-
-titulosAnimation.forEach((image) => {
-  observerTitulo.observe(image);
-});
-
-//ETIQUETAS
-let d = document;
-let main = d.querySelector("#main");
-let containerHabilidades = d.querySelector("#container-habilidades");
-
-//EVENTOS
-
-//HABILIDADES
-//ARRAY habilidades
-const arrayHabilidades = [
-  {
-    categoria: "FRONTEND",
-    habilidades: {
-      habilidad_1: {
-        tipo: "HTML y CSS",
-        nivel: "Avanzado",
-      },
-      habilidad_2: {
-        tipo: "JavaScript",
-        nivel: "Avanzado",
-      },
-      habilidad_3: {
-        tipo: "Tailwind",
-        nivel: "Avanzado",
-      },
-      habilidad_4: {
-        tipo: "React.js",
-        nivel: "Avanzado",
-      },
-      habilidad_5: {
-        tipo: "Vue.js",
-        nivel: "Intermedio",
-      },
-      habilidad_6: {
-        tipo: "WordPress",
-        nivel: "Intermedio",
-      },
-    },
-  },
-  {
-    categoria: "BACKEND",
-    habilidades: {
-      habilidad_1: {
-        tipo: "MySQL",
-        nivel: "Avanzado",
-      },
-      habilidad_2: {
-        tipo: "MongoDB",
-        nivel: "Avanzado",
-      },
-      habilidad_3: {
-        tipo: "Node.js",
-        nivel: "Avanzado",
-      },
-      habilidad_4: {
-        tipo: "PHP",
-        nivel: "Intermedio",
-      },
-      habilidad_5: {
-        tipo: "Laravel",
-        nivel: "Intermedio",
-      },
-      habilidad_6: {
-        tipo: "PWA",
-        nivel: "Intermedio",
-      },
-    },
-  },
-  {
-    categoria: "DISEÑO",
-    habilidades: {
-      habilidad_1: {
-        tipo: "Photoshop",
-        nivel: "Avanzado",
-      },
-      habilidad_2: {
-        tipo: "Illustrator",
-        nivel: "Intermedio",
-      },
-      habilidad_3: {
-        tipo: "Figma",
-        nivel: "Intermedio",
-      },
-      habilidad_4: {
-        tipo: "Premier",
-        nivel: "Básico",
-      },
-    },
-  },
-  {
-    categoria: "IDIOMA",
-    habilidades: {
-      habilidad_1: {
-        tipo: "Inglés",
-        nivel: "Avanzado",
-      },
-      habilidad_2: {
-        tipo: "Español",
-        nivel: "Nativo",
-      },
-    },
-  },
-];
-
-//CREATE habilidades
-
-arrayHabilidades.forEach((habilidad) => {
-  let divContainerCadaHabilidad = document.createElement("div");
-  let h4Habilidades = document.createElement("h4");
-  let ulHabilidades = document.createElement("ul");
-  let botonVerMas = document.createElement("button");
-  containerHabilidades.appendChild(divContainerCadaHabilidad);
-  divContainerCadaHabilidad.appendChild(h4Habilidades);
-  h4Habilidades.textContent = habilidad.categoria;
-  h4Habilidades.classList.add("h4Habilidades");
-  divContainerCadaHabilidad.appendChild(ulHabilidades);
-  divContainerCadaHabilidad.appendChild(botonVerMas);
-  botonVerMas.classList.add("ver-mas-habilidades");
-  botonVerMas.classList.add("accordion");
-  Object.values(habilidad.habilidades).forEach((habilidadIndividual) => {
-    let liHabilidades = document.createElement("li");
-    ulHabilidades.appendChild(liHabilidades);
-    ulHabilidades.setAttribute("id", "ulHabilidades");
-    ulHabilidades.setAttribute("class", "accordion-content");
-    liHabilidades.textContent = habilidadIndividual.tipo;
-    liHabilidades.setAttribute("id", "listaHabilidades");
-    let spanHabilidad = document.createElement("span");
-    liHabilidades.appendChild(spanHabilidad);
-    spanHabilidad.textContent = habilidadIndividual.nivel;
-    if (habilidadIndividual.nivel === "Avanzado") {
-      spanHabilidad.classList.add("avanzado");
-    } else if (habilidadIndividual.nivel === "Intermedio") {
-      spanHabilidad.classList.add("intermedio");
-    } else if (habilidadIndividual.nivel === "Básico") {
-      spanHabilidad.classList.add("basico");
-    } else if (habilidadIndividual.nivel === "Nativo") {
-      spanHabilidad.classList.add("avanzado");
-    } else {
+// Smooth scroll para enlaces de navegación
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    e.preventDefault();
+    const href = this.getAttribute('href');
+    
+    // Si es el enlace al inicio (#top o #)
+    if (href === '#top' || href === '#') {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
       return;
     }
+    
+    const target = document.querySelector(href);
+    if (target) {
+      const headerOffset = 80;
+      const elementPosition = target.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+    }
   });
 });
 
-/* REDUCIR Y EXPANDIR HABILIDADES */
-let acc = document.querySelectorAll(".accordion");
-let i;
-
-for (i = 0; i < acc.length; i++) {
-  acc[i].addEventListener("click", function () {
-    this.classList.toggle("active");
-    let panel = this.previousElementSibling;
-    if (panel.style.maxHeight) {
-      panel.style.maxHeight = null;
-    } else {
-      panel.style.maxHeight = panel.scrollHeight + "px";
-    }
-  });
-}
-
-//VALIDACION MAIL
+// VALIDACION FORMULARIO
 const contactForm = document.getElementById("contactForm");
-const inputs = Array.from(
-  contactForm.querySelectorAll(".form-control input, .form-control textarea")
-);
+if (contactForm) {
+  const inputs = Array.from(
+    contactForm.querySelectorAll(".form-control input, .form-control textarea")
+  );
 
-contactForm.addEventListener("submit", function (event) {
-  if (!validateForm()) {
-    event.preventDefault();
-  }
-});
-
-inputs.forEach((input) => {
-  input.addEventListener("input", function () {
-    validateInput(input);
-  });
-
-  input.addEventListener("blur", function () {
-    validateInput(input);
-  });
-});
-
-function validateForm() {
-  return inputs.every(validateInput);
-}
-
-function validateInput(input) {
-  const formControl = input.parentElement;
-  const value = input.value.trim();
-  const isValid = validateValue(input, value);
-
-  if (isValid) {
-    showSuccess(formControl);
-  } else {
-    showError(formControl, getErrorMessage(input));
-  }
-
-  return isValid;
-}
-
-function validateValue(input, value) {
-  if (input.id === "name" || input.id === "lastname") {
-    return value !== "" && !/\d/.test(value);
-  }
-
-  if (input.id === "email") {
-    return isValidEmail(value);
-  }
-
-  if (input.id === "phone") {
-    return isValidPhone(value);
-  }
-
-  if (input.id === "comments") {
-    return value.length >= 1;
-  }
-
-  return true;
-}
-
-function getErrorMessage(input) {
-  if (input.id === "name" || input.id === "lastname") {
-    return "El campo es obligatorio y no debe contener números.";
-  }
-
-  if (input.id === "email") {
-    return "Ingrese un email válido.";
-  }
-
-  if (input.id === "phone") {
-    return "Ingrese un número de teléfono válido.";
-  }
-
-  if (input.id === "comments") {
-    return "Este campo no puede quedar vacío";
-  }
-
-  return "";
-}
-
-function showError(formControl, message) {
-  formControl.classList.add("error");
-  formControl.classList.remove("success");
-  formControl.querySelector("small").textContent = message;
-}
-
-function showSuccess(formControl) {
-  formControl.classList.remove("error");
-  formControl.classList.add("success");
-  formControl.querySelector("small").textContent = "";
-}
-
-function isValidEmail(email) {
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  return emailRegex.test(email);
-}
-
-function isValidPhone(phone) {
-  const phoneRegex = /^\d+$/;
-  return phoneRegex.test(phone);
-}
-
-$(document).ready(function () {
-  // Escucha el evento de envío del formulario
-  $("form").on("submit", function (e) {
-    e.preventDefault(); // Evita el envío normal del formulario
-
-    // Validate the form before submitting
+  contactForm.addEventListener("submit", function (event) {
     if (!validateForm()) {
-      // Show an error message or handle the error as you prefer
-      console.log(
-        "Form validation failed. Please fill out all required fields correctly."
-      );
-      return;
+      event.preventDefault();
+    }
+  });
+
+  inputs.forEach((input) => {
+    input.addEventListener("input", function () {
+      validateInput(input);
+    });
+
+    input.addEventListener("blur", function () {
+      validateInput(input);
+    });
+  });
+
+  function validateForm() {
+    return inputs.every(validateInput);
+  }
+
+  function validateInput(input) {
+    const formControl = input.parentElement;
+    const value = input.value.trim();
+    const isValid = validateValue(input, value);
+
+    // Para campos opcionales como teléfono, si está vacío no mostrar error ni success
+    if (input.id === "phone" && value === "") {
+      formControl.classList.remove("error", "success");
+      const errorMessage = formControl.querySelector("small");
+      if (errorMessage) {
+        errorMessage.textContent = "";
+      }
+      return true; // Es válido porque es opcional
     }
 
-    // Envía la solicitud AJAX al archivo PHP
-    $.ajax({
-      type: "POST",
-      url: "assets/mail.php",
-      data: $(this).serialize(), // Envía los datos del formulario
-      success: function (response) {
-        // Muestra la alerta de SweetAlert
-        swal({
-          title: "¡Mensaje enviado!",
-          text: "Tu mensaje se ha enviado correctamente.",
-          icon: "success",
-          button: "Aceptar",
-        });
+    if (isValid) {
+      showSuccess(formControl);
+    } else {
+      showError(formControl, getErrorMessage(input));
+    }
 
-        // Restablece el formulario
-        $("form")[0].reset();
-      },
-      error: function (xhr, status, error) {
-        // Handle the error if the AJAX request fails
-        console.log("Error submitting the form: ", error);
-      },
+    return isValid;
+  }
+
+  function validateValue(input, value) {
+    if (input.id === "name" || input.id === "lastname") {
+      return value !== "" && value.length >= 2 && !/\d/.test(value);
+    }
+
+    if (input.id === "email") {
+      return isValidEmail(value);
+    }
+
+    if (input.id === "phone") {
+      // Teléfono es opcional, si está vacío es válido, si tiene contenido debe ser válido
+      if (value === "") {
+        return true;
+      }
+      return isValidPhone(value);
+    }
+
+    if (input.id === "comments") {
+      // Solo verificar que no esté vacío, sin mínimo de caracteres
+      return value !== "";
+    }
+
+    return true;
+  }
+
+  function getErrorMessage(input) {
+    if (input.id === "name" || input.id === "lastname") {
+      return "El campo es obligatorio, debe tener al menos 2 caracteres y no contener números.";
+    }
+
+    if (input.id === "email") {
+      if (input.value.trim() === "") {
+        return "El email es obligatorio.";
+      }
+      if (input.value.length > 254) {
+        return "El email es demasiado largo (máximo 254 caracteres).";
+      }
+      return "Ingrese un email válido.";
+    }
+
+    if (input.id === "phone") {
+      return "Ingrese un número de teléfono válido.";
+    }
+
+    if (input.id === "comments") {
+      return "El mensaje no puede estar vacío.";
+    }
+
+    return "";
+  }
+
+  function showError(formControl, message) {
+    formControl.classList.add("error");
+    formControl.classList.remove("success");
+    const errorMessage = formControl.querySelector("small");
+    if (errorMessage) {
+      errorMessage.textContent = message;
+    }
+  }
+
+  function showSuccess(formControl) {
+    formControl.classList.remove("error");
+    formControl.classList.add("success");
+    const errorMessage = formControl.querySelector("small");
+    if (errorMessage) {
+      errorMessage.textContent = "";
+    }
+  }
+
+  function isValidEmail(email) {
+    // Validación más estricta de email
+    // Longitud máxima recomendada según RFC 5321
+    if (email.length > 254) {
+      return false;
+    }
+    
+    // Regex más robusto que valida formato de email
+    const emailRegex = /^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
+    
+    if (!emailRegex.test(email)) {
+      return false;
+    }
+    
+    // Validación adicional: no debe tener puntos consecutivos
+    if (email.includes('..')) {
+      return false;
+    }
+    
+    // Validación adicional: no debe empezar o terminar con punto
+    const parts = email.split('@');
+    if (parts.length !== 2) {
+      return false;
+    }
+    
+    const localPart = parts[0];
+    const domain = parts[1];
+    
+    if (localPart.startsWith('.') || localPart.endsWith('.') || 
+        domain.startsWith('.') || domain.endsWith('.')) {
+      return false;
+    }
+    
+    // Validación adicional: dominio debe tener al menos un punto
+    if (!domain.includes('.')) {
+      return false;
+    }
+    
+    return true;
+  }
+
+  function isValidPhone(phone) {
+    const phoneRegex = /^\d+$/;
+    return phoneRegex.test(phone) && phone.length >= 8;
+  }
+
+  // Envío del formulario con AJAX
+  $(document).ready(function () {
+    $("form").on("submit", function (e) {
+      e.preventDefault();
+
+      if (!validateForm()) {
+        console.log(
+          "Form validation failed. Please fill out all required fields correctly."
+        );
+        return;
+      }
+
+      $.ajax({
+        type: "POST",
+        url: "assets/mail.php",
+        data: $(this).serialize(),
+        success: function (response) {
+          swal({
+            title: "¡Mensaje enviado!",
+            text: "Tu mensaje se ha enviado correctamente.",
+            icon: "success",
+            button: "Aceptar",
+          });
+
+          $("form")[0].reset();
+          // Remover clases de validación
+          $(".form-control").removeClass("success error");
+        },
+        error: function (xhr, status, error) {
+          swal({
+            title: "Error",
+            text: "Hubo un problema al enviar el mensaje. Por favor, inténtalo de nuevo.",
+            icon: "error",
+            button: "Aceptar",
+          });
+          console.log("Error submitting the form: ", error);
+        },
+      });
     });
+  });
+}
+
+// Botón Ver más/Ver menos para descripción del hero
+document.addEventListener('DOMContentLoaded', () => {
+  const btnReadMore = document.getElementById('btnReadMore');
+  const descriptionFull = document.querySelector('.hero-description-full');
+  
+  if (btnReadMore && descriptionFull) {
+    btnReadMore.addEventListener('click', function() {
+      const isExpanded = descriptionFull.classList.contains('show');
+      
+      if (isExpanded) {
+        descriptionFull.classList.remove('show');
+        btnReadMore.textContent = 'Ver más';
+      } else {
+        descriptionFull.classList.add('show');
+        btnReadMore.textContent = 'Ver menos';
+      }
+    });
+  }
+});
+
+// Animación suave al hacer scroll
+const observerOptions = {
+  threshold: 0.1,
+  rootMargin: '0px 0px -50px 0px'
+};
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.style.opacity = '1';
+      entry.target.style.transform = 'translateY(0)';
+    }
+  });
+}, observerOptions);
+
+// Aplicar animación a elementos
+document.addEventListener('DOMContentLoaded', () => {
+  const animatedElements = document.querySelectorAll('.project-card, .skill-category, .education-item, .experience-item');
+  animatedElements.forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(20px)';
+    el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+    observer.observe(el);
   });
 });

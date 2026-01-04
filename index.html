@@ -1,25 +1,25 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Desarrollador web especializado en JavaScript, HTML, CSS, PHP y PWA. Explora mi portfolio para ver mis proyectos y habilidades."
+      content="Matías Poletto - Technical Project Manager y Full Stack Developer. Especializado en gestión de proyectos IT, desarrollo web y coordinación de equipos técnicos."
     />
     <meta
       property="og:description"
-      content="Explora mi portfolio para ver mis proyectos y habilidades como desarrollador web especializado en JavaScript, HTML, CSS, PHP y PWA."
+      content="Technical Project Manager y Full Stack Developer especializado en gestión de proyectos IT, desarrollo web y coordinación de equipos técnicos."
     />
     <meta
       property="og:title"
-      content="Desarrollador Web | JavaScript, HTML, CSS, PHP, PWA | Matias Poletto"
+      content="Matías Poletto | Technical Project Manager & Full Stack Developer"
     />
     <meta property="og:image" content="assets/img/logo-mp.png" />
     <meta
       name="keywords"
-      content="desarrollador web, JavaScript, HTML, CSS, PHP, PWA, portfolio, habilidades, diseño web, maquetado web, cv, portfolio web"
+      content="project manager, technical lead, full stack developer, gestión de proyectos IT, React, Node.js, MongoDB, portfolio"
     />
     <meta name="author" content="Matias Poletto" />
     <meta name="robots" content="index, follow" />
@@ -31,23 +31,22 @@
     />
     <link
       rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;600;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
     />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
-    <title>Portfolio Matias Poletto</title>
+    <title>
+      Matías Poletto | Technical Project Manager & Full Stack Developer
+    </title>
   </head>
-  <body>
+  <body id="top">
     <header>
       <div class="burger">
         <span></span>
       </div>
       <nav class="nav-burger">
         <ul class="ul-burger">
-          <li class="li-burger"><a href="#sobremi">Sobre Mí</a></li>
+          <li class="li-burger"><a href="#experiencia">Experiencia</a></li>
           <li class="li-burger"><a href="#habilidades">Habilidades</a></li>
           <li class="li-burger"><a href="#proyectos">Proyectos</a></li>
-          <li class="li-burger"><a href="#estudios">Estudios</a></li>
           <li class="li-burger"><a href="#contacto">Contacto</a></li>
           <li class="curriculum-container li-burger">
             <a
@@ -64,13 +63,12 @@
       <div class="overlay"></div>
       <nav id="main-nav">
         <h1>
-          <a href="#">Matías <span>Poletto</span></a>
+          <a href="#top">Matías <span>Poletto</span></a>
         </h1>
         <ul id="ul-nav">
-          <li><a href="#sobremi">Sobre Mí</a></li>
+          <li><a href="#experiencia">Experiencia</a></li>
           <li><a href="#habilidades">Habilidades</a></li>
           <li><a href="#proyectos">Proyectos</a></li>
-          <li><a href="#estudios">Estudios</a></li>
           <li><a href="#contacto">Contacto</a></li>
           <li class="curriculum-container">
             <a
@@ -86,287 +84,440 @@
       </nav>
     </header>
     <main id="main">
-      <section class="section-presentation">
-        <div id="particles-js"></div>
-        <div class="div-hello"><p>Hola soy</p></div>
-        <div class="animation-text">
-          <div class="first">
-            <h2>Matías Poletto</h2>
+      <section class="section-hero">
+        <div class="hero-content">
+          <div class="hero-left">
+            <h3 class="hero-title">
+              Technical Project Manager & Full Stack Developer
+            </h3>
+            <p class="hero-description">
+              <span class="hero-description-short">
+                Profesional IT con perfil técnico y de gestión, orientado a la
+                planificación, ejecución y mejora continua de proyectos digitales.
+                Actualmente lidero el área IT y coordino la evolución del ERP/CRM
+                interno de la compañía, gestionando prioridades, tiempos, tareas y
+                desempeño del equipo mediante herramientas de gestión.
+              </span>
+              <span class="hero-description-full" style="display: none;">
+                Participo activamente tanto en la definición de objetivos como en el
+                desarrollo técnico de las soluciones, programando, diseñando e
+                implementando sistemas complejos. Realizo seguimiento de avances,
+                análisis de métricas y toma de decisiones, asegurando calidad,
+                escalabilidad y cumplimiento de plazos. Cuento con sólida base
+                técnica en desarrollo web y experiencia aplicando metodologías
+                ágiles en entornos reales.
+              </span>
+            </p>
+            <button class="btn-read-more" id="btnReadMore">Ver más</button>
           </div>
-          <div class="second"><h2>Web Developer</h2></div>
+          <div class="hero-right">
+            <div class="hero-image">
+              <img src="assets/img/foto-perfil.jpg" alt="Matías Poletto" />
+            </div>
+            <div class="hero-cta">
+              <a href="#contacto" class="btn-primary">Contactar</a>
+              <a
+                href="assets/cv/CV-Matias-Poletto.pdf"
+                download
+                class="btn-secondary"
+                target="_blank"
+                >Descargar CV</a
+              >
+            </div>
+          </div>
         </div>
-      </section>
-      <section id="sobremi">
-        <div class="container-img-perfil">
-          <figure class="img-perfil">
-            <img src="assets/img/foto-perfil.jpg" alt="foto perfil matias" />
-          </figure>
-        </div>
-        <div class="div-h3-sobremi div-h3">
-          <h3 class="scroll-title">Sobre Mí</h3>
-        </div>
-        <div class="div-p-sobremi accordion-content accordion-content-sobreMi">
-          <p>
-            Estudiante de la carrera de Diseño y Desarrollo Web en la Escuela de
-            Artes Multimediales DaVinci. Mis principales fortalezas son el
-            trabajo en equipo, la creatividad y proactividad para resolver
-            problemas. <br />
-            Soy una persona motivada y decidida a demostrar mis habilidades
-            técnicas de programación web para contribuir al desarrollo cualquier
-            proyecto que lo requiera.
-          </p>
-        </div>
-        <button class="accordion" id="boton-ver-mas"></button>
-      </section>
-      <section id="habilidades" class="section-habilidades">
-        <div class="div-h3">
-          <h3 class="scroll-title title-green">Habilidades</h3>
-        </div>
-        <div id="container-habilidades" class="container-habilidades"></div>
       </section>
 
-      <section id="proyectos" class="section-proyectos">
-        <div class="div-h3">
-          <h3 class="scroll-title title-green">Proyectos</h3>
-        </div>
-        <div class="container-cards">
-          <div class="card">
-            <img src="assets/img/ventra.jpg" alt="imagen ventra" />
-            <h5 class="titulo-proyecto">React.js, API y MongoDB</h5>
-            <div class="content">
-              <h3>Ventra</h3>
-              <p>Sitio Eventos Musicales React.js, API, Tailwind y MongoDB</p>
-              <a target="_blank" href="https://ventra.com.ar/">Ver Más</a>
-            </div>
-          </div>
-          <div class="card">
-            <img
-              src="assets/img/ventra-vue-firebase.webp"
-              alt="imagen ventra hecho en vue y firebase"
-            />
-            <h5 class="titulo-proyecto">Vue.js y Firebase</h5>
-            <div class="content">
-              <h3>Ventra</h3>
-              <p>CRUD Eventos Musicales Vue.js, Firebase y Tailwind</p>
-              <a
-                target="_blank"
-                href="http://vue-firebase-project.matiaspoletto.com.ar/"
-                >Ver Más</a
-              >
-            </div>
-          </div>
-          <div class="card">
-            <img
-              src="assets/img/takin-shots.webp"
-              alt="imagen sitio pwa y api"
-            />
-            <h5 class="titulo-proyecto">Sitio PWA y API</h5>
-            <div class="content">
-              <h3>Takin' Shots</h3>
-              <p>Sitio desarrollado como PWA e incorporación de API</p>
-              <a target="_blank" href="https://takin-shots.netlify.app/"
-                >Ver Más</a
-              >
-            </div>
-          </div>
-          <div class="card">
-            <img src="assets/img/ecommerce.webp" alt="imagen ecommerce" />
-            <h5 class="titulo-proyecto">JavaScript DOM</h5>
-            <div class="content">
-              <h3>Ecommerce</h3>
-              <p>Creado a partir de DOM prácticamente sin contenido HTML</p>
-              <a target="_blank" href="https://ecommercetym.netlify.app/"
-                >Ver Más</a
-              >
-            </div>
-          </div>
 
-          <div class="card">
-            <img src="assets/img/tus-globos.webp" alt="imagen tus globos" />
-            <h5 class="titulo-proyecto">Sitio PHP</h5>
-            <div class="content">
-              <h3>Tus Globos</h3>
-              <p>Sitio ecommerce desarrollado utilizando PHP</p>
-              <a
-                target="_blank"
-                href="https://github.com/MatiPole/Tus-Globos-PHP"
-                >Ver Más</a
-              >
+      <section id="experiencia" class="section-experience">
+        <div class="container">
+          <h2 class="section-title section-title-light">
+            Experiencia Profesional
+          </h2>
+          <div class="experience-timeline">
+            <div class="experience-item">
+              <div class="experience-year">2024 - Actualidad</div>
+              <div class="experience-content">
+                <h3>Technical Lead / IT Project Coordinator</h3>
+                <h4>Ro Medical</h4>
+                <ul>
+                  <li>
+                    Coordinación y planificación de proyectos internos de IT
+                  </li>
+                  <li>
+                    Gestión de backlog, prioridades y asignación de tareas
+                    mediante Asana
+                  </li>
+                  <li>Seguimiento de avances, plazos y desempeño del equipo</li>
+                  <li>Relevamiento de requerimientos con áreas de negocio</li>
+                  <li>Desarrollo y evolución del ERP/CRM interno</li>
+                  <li>
+                    Implementación de automatizaciones e integraciones externas
+                  </li>
+                  <li>
+                    Análisis de métricas y mejora continua de procesos técnicos
+                  </li>
+                </ul>
+              </div>
             </div>
-          </div>
-
-          <div class="card">
-            <img src="assets/img/bootstrap.webp" alt="imagen bootstrap" />
-            <h5 class="titulo-proyecto">Bootstrap</h5>
-            <div class="content">
-              <h3>Bootstrap</h3>
-              <p>Simulación de un sitio informativo creado con Bootstrap</p>
-              <a
-                target="_blank"
-                href="https://github.com/MatiPole/Ejemplo-sitio-con-bootstrap-informativo"
-                >Ver Más</a
-              >
+            <div class="experience-item">
+              <div class="experience-year">2017 - 2024</div>
+              <div class="experience-content">
+                <h3>Comunicación Digital y Marketing</h3>
+                <h4>Globos Tuky</h4>
+                <ul>
+                  <li>
+                    Gestión de comunicación digital y presencia online de la
+                    marca
+                  </li>
+                  <li>
+                    Community management, generación de contenidos y soporte al
+                    ecommerce
+                  </li>
+                  <li>
+                    Acompañamiento en procesos de mejora continua junto a
+                    consultora externa
+                  </li>
+                  <li>
+                    Relevamiento de datos operativos y análisis de indicadores
+                  </li>
+                  <li>
+                    Participación en reuniones interdisciplinarias para
+                    detección de causas raíz y optimización de procesos
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="experience-item">
+              <div class="experience-year">2017 - 2019</div>
+              <div class="experience-content">
+                <h3>Producción Artística</h3>
+                <h4>Boreal Entertainment</h4>
+                <ul>
+                  <li>Curaduría de artistas</li>
+                  <li>Logística de eventos y asistencia a bandas</li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
       </section>
-      <section id="estudios">
-        <div class="div-h3">
-          <h3 class="scroll-title">Estudios</h3>
+
+      <section id="habilidades" class="section-skills">
+        <div class="container">
+          <h2 class="section-title">Habilidades</h2>
+          <div class="skills-grid">
+            <div class="skill-category">
+              <h3>Gestión</h3>
+              <ul>
+                <li>Gestión de proyectos IT</li>
+                <li>Planificación y seguimiento</li>
+                <li>Coordinación de equipos técnicos</li>
+                <li>Análisis de métricas</li>
+                <li>Comunicación con stakeholders</li>
+                <li>Metodologías ágiles</li>
+              </ul>
+            </div>
+            <div class="skill-category">
+              <h3>Frontend</h3>
+              <ul>
+                <li>React.js</li>
+                <li>Next.js</li>
+                <li>JavaScript</li>
+                <li>HTML & CSS</li>
+                <li>Tailwind CSS</li>
+              </ul>
+            </div>
+            <div class="skill-category">
+              <h3>Backend</h3>
+              <ul>
+                <li>Node.js</li>
+                <li>PHP</li>
+                <li>Laravel</li>
+                <li>APIs REST</li>
+                <li>Integraciones externas</li>
+              </ul>
+            </div>
+            <div class="skill-category">
+              <h3>Base de Datos</h3>
+              <ul>
+                <li>MySQL</li>
+                <li>MongoDB</li>
+              </ul>
+            </div>
+            <div class="skill-category">
+              <h3>Infraestructura</h3>
+              <ul>
+                <li>Linux</li>
+                <li>Nginx</li>
+              </ul>
+            </div>
+            <div class="skill-category">
+              <h3>Idiomas</h3>
+              <ul>
+                <li>Español (Nativo)</li>
+                <li>Inglés (Avanzado)</li>
+              </ul>
+            </div>
+          </div>
         </div>
-        <div class="div-estudios">
-          <div data-aos="fade-up">
-            <h4>Diseño y Desarollo Web</h4>
-            <div class="info-estudios">
-              <h5>Escuela Da Vinci <span>Finalizado en 2024</span></h5>
+      </section>
+
+      <section id="proyectos" class="section-projects">
+        <div class="container">
+          <h2 class="section-title section-title-light">
+            Proyectos Destacados
+          </h2>
+          <div class="projects-grid">
+            <div class="project-card">
+              <div class="project-image">
+                <img src="assets/img/romedical.jpg" alt="Ro Medical ERP/CRM" />
+              </div>
+              <div class="project-content">
+                <h3>Ro Medical - ERP/CRM</h3>
+                <p class="project-tech">
+                  PHP, MySQL, API Node.js, jQuery, Servidor Linux
+                </p>
+                <p class="project-description">
+                  Desarrollo y evolución del ERP/CRM interno de la compañía.
+                  Incluye gestión de backlog, prioridades, asignación de tareas,
+                  automatizaciones e integraciones externas, y análisis de
+                  métricas para mejora continua de procesos técnicos.
+                </p>
+              </div>
+            </div>
+            <div class="project-card">
+              <div class="project-image">
+                <img
+                  src="assets/img/dacar.jpg"
+                  alt="Sistema de Gestión Carpintería Dacar"
+                />
+              </div>
+              <div class="project-content">
+                <h3>Sistema de Gestión Carpintería Dacar</h3>
+                <p class="project-tech">React, Node.js, MongoDB</p>
+                <p class="project-description">
+                  Sistema para presupuestar muebles en carpintería. Cuenta con
+                  sistema de usuarios con diferentes permisos, permite precargar
+                  módulos para luego generar muebles personalizados y a partir
+                  de eso generar presupuestos detallados.
+                </p>
+              </div>
+            </div>
+            <div class="project-card">
+              <div class="project-image">
+                <img src="assets/img/logistran.jpg" alt="Logistran" />
+              </div>
+              <div class="project-content">
+                <h3>Logistran</h3>
+                <p class="project-tech">Laravel, MySQL, Tailwind</p>
+                <p class="project-description">
+                  Sistema administrativo completo para empresa de logística.
+                  Incluye gestión de facturas, pagos, ABM completo, seguimiento
+                  de cuenta corriente para clientes, conductores y fleteros,
+                  hojas de ruta, agenda con notas de recordatorio y seguimiento
+                  de vencimientos de vehículos (patentes, seguros, etc.).
+                </p>
+              </div>
+            </div>
+            <div class="project-card">
+              <div class="project-image">
+                <img
+                  src="assets/img/volquetes.jpg"
+                  alt="Volquetes Buenos Aires"
+                />
+              </div>
+              <div class="project-content">
+                <h3>Volquetes Buenos Aires</h3>
+                <p class="project-tech">Next.js, SEO técnico, Google Ads</p>
+                <p class="project-description">
+                  Sitio web desarrollado con Next.js, optimizado para SEO
+                  técnico y con integración de Google Ads para gestión de
+                  publicidad.
+                </p>
+              </div>
+            </div>
+            <div class="project-card">
+              <div class="project-image">
+                <img src="assets/img/latam.jpg" alt="Latam Financial Group" />
+              </div>
+              <div class="project-content">
+                <h3>Latam Financial Group</h3>
+                <p class="project-tech">WordPress, Moodle, WooCommerce</p>
+                <p class="project-description">
+                  Plataforma integral desarrollada con WordPress, integrando
+                  Moodle para e-learning y WooCommerce para comercio
+                  electrónico.
+                </p>
+              </div>
+            </div>
+            <div class="project-card">
+              <div class="project-image">
+                <img src="assets/img/ventra-vue-firebase.webp" alt="Ventra" />
+              </div>
+              <div class="project-content">
+                <h3>Ventra</h3>
+                <p class="project-tech">Vue.js, Firebase, Tailwind</p>
+                <p class="project-description">
+                  CRUD de eventos musicales desarrollado con Vue.js, Firebase
+                  para backend y Tailwind CSS para estilos.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="estudios" class="section-education">
+        <div class="container">
+          <h2 class="section-title">Educación</h2>
+          <div class="education-grid">
+            <div class="education-item">
+              <h3>Diseño y Desarrollo Web</h3>
+              <h4>Universidad Da Vinci</h4>
+              <p class="education-period">2022 - 2024</p>
               <p>
-                Desarrollo de sitios web responsive, aplicaciones moviles
+                Desarrollo de sitios web responsive, aplicaciones móviles
                 progresivas, manejo de API, diseño UX y producción de contenido.
+                Aplicación de metodologías ágiles en proyectos académicos y
+                reales.
               </p>
             </div>
-          </div>
-          <div data-aos="fade-up">
-            <h4>Community Manager</h4>
-            <div class="info-estudios">
-              <h5>Capacitarte (UBA) <span>Finalizado en 2017</span></h5>
-              <p>
-                Capacitación sobre el manejo de redes sociales, su contenido y
-                promociones.
-              </p>
-            </div>
-          </div>
-          <div data-aos="fade-up">
-            <h4>Producción Musical</h4>
-            <div class="info-estudios">
-              <h5>Universidad de Palermo <span>Finalizado en 2016</span></h5>
+            <div class="education-item">
+              <h3>Producción Musical</h3>
+              <h4>Universidad de Palermo</h4>
+              <p class="education-period">2015 - 2016</p>
               <p>
                 Formación en producción de eventos artísticos relacionados a la
-                música, incluyendo su promoción, y management de artistas.
+                música, incluyendo su promoción y management de artistas.
               </p>
             </div>
           </div>
         </div>
       </section>
+
       <section class="contact-us" id="contacto">
-        <form
-          id="contactForm"
-          autocomplete="on"
-          method="POST"
-          action="assets/mail.php"
-          novalidate
-        >
-          <div class="div-contacto">
-            <h3 class="h3-contacto">CONTACTO</h3>
-          </div>
-          <div class="form-control">
-            <label for="name">Nombre: <span> *</span></label>
-            <input
-              type="text"
-              id="name"
-              name="name"
-              required
-              minlength="2"
-              maxlength="30"
-              placeholder="Su nombre aquí"
-            />
-            <small class="error-message"></small>
-          </div>
-          <div class="form-control">
-            <label for="lastname">Apellido: <span> *</span></label>
-            <input
-              type="text"
-              id="lastname"
-              name="lastname"
-              required
-              minlength="2"
-              maxlength="30"
-              placeholder="Su apellido aquí"
-            />
-            <small class="error-message"></small>
-          </div>
-          <div class="form-control">
-            <label for="email">Email:<span> *</span></label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              required
-              placeholder="test@mail.com"
-            />
-            <small class="error-message"></small>
-          </div>
-          <div class="form-control">
-            <label for="phone">Teléfono:<span> *</span></label>
-            <input
-              type="tel"
-              id="phone"
-              name="phone"
-              required
-              placeholder="1123456789"
-            />
-            <small class="error-message"></small>
-          </div>
-          <div class="form-control">
-            <label for="comments">Mensaje:<span> *</span></label>
-            <textarea
-              name="comments"
-              id="comments"
-              required
-              minlength="50"
-              cols="10"
-              rows="10"
-              placeholder="Coloque aquí su mensaje"
-            ></textarea>
-            <small class="error-message"></small>
-          </div>
-          <input type="submit" id="submit" value="Enviar" />
-          <p class="aviso">
-            <span class="obligatorio"> * </span>los campos son obligatorios.
-          </p>
-        </form>
+        <div class="container">
+          <h2 class="section-title section-title-light">Contacto</h2>
+          <form
+            id="contactForm"
+            autocomplete="on"
+            method="POST"
+            action="assets/mail.php"
+            novalidate
+          >
+            <div class="form-grid">
+              <div class="form-control">
+                <label for="name">Nombre <span>*</span></label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  required
+                  minlength="2"
+                  maxlength="30"
+                  placeholder="Tu nombre"
+                />
+                <small class="error-message"></small>
+              </div>
+              <div class="form-control">
+                <label for="lastname">Apellido <span>*</span></label>
+                <input
+                  type="text"
+                  id="lastname"
+                  name="lastname"
+                  required
+                  minlength="2"
+                  maxlength="30"
+                  placeholder="Tu apellido"
+                />
+                <small class="error-message"></small>
+              </div>
+              <div class="form-control">
+                <label for="email">Email <span>*</span></label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  required
+                  maxlength="254"
+                  placeholder="tu@email.com"
+                />
+                <small class="error-message"></small>
+              </div>
+              <div class="form-control">
+                <label for="phone">Teléfono</label>
+                <input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  placeholder="1123456789 (opcional)"
+                />
+                <small class="error-message"></small>
+              </div>
+            </div>
+            <div class="form-control form-control-full">
+              <label for="comments">Mensaje <span>*</span></label>
+              <textarea
+                name="comments"
+                id="comments"
+                required
+                cols="10"
+                rows="6"
+                placeholder="Escribe tu mensaje aquí..."
+              ></textarea>
+              <small class="error-message"></small>
+            </div>
+            <input type="submit" id="submit" value="Enviar Mensaje" />
+            <p class="aviso">
+              <span class="obligatorio">*</span> Los campos son obligatorios.
+            </p>
+          </form>
+        </div>
       </section>
     </main>
     <footer>
-      <div class="info-contacto">
-        <h4>Contacto</h4>
-        <ul>
-          <li>polettomatias@gmail.com</li>
-          <li>(+54)1167140002</li>
-          <li>Buenos Aires, Argentina</li>
-        </ul>
-      </div>
-      <div class="redes-sociales">
-        <div>
-          <a
-            target="_blank"
-            href="https://api.whatsapp.com/send/?phone=5491167140002&text&type=phone_number&app_absent=0"
-          >
-            <img src="assets/img/whatsapp-logo.png" alt="Whatsapp" />
-          </a>
+      <div class="container">
+        <div class="footer-content">
+          <div class="info-contacto">
+            <h4>Contacto</h4>
+            <ul>
+              <li>polettomatias@gmail.com</li>
+              <li>(+54) 11 6714 0002</li>
+              <li>San Martín, Buenos Aires - Argentina</li>
+            </ul>
+          </div>
+          <div class="redes-sociales">
+            <a
+              target="_blank"
+              href="https://api.whatsapp.com/send/?phone=5491167140002&text&type=phone_number&app_absent=0"
+              aria-label="WhatsApp"
+            >
+              <img src="assets/img/whatsapp-logo.png" alt="WhatsApp" />
+            </a>
+            <a
+              target="_blank"
+              href="https://github.com/MatiPole"
+              aria-label="GitHub"
+            >
+              <img src="assets/img/github-logo.png" alt="GitHub" />
+            </a>
+            <a
+              target="_blank"
+              href="https://www.linkedin.com/in/matias-poletto/"
+              aria-label="LinkedIn"
+            >
+              <img src="assets/img/linkedin-logo.png" alt="LinkedIn" />
+            </a>
+          </div>
         </div>
-        <div>
-          <a target="_blank" href="https://github.com/MatiPole">
-            <img src="assets/img/github-logo.png" alt="GitHub" />
-          </a>
+        <div class="copyright">
+          <small>© 2024 Matías Poletto. Todos los derechos reservados.</small>
         </div>
-        <div>
-          <a target="_blank" href="https://www.linkedin.com/in/matias-poletto/">
-            <img src="assets/img/linkedin-logo.png" alt="LinkedIn" />
-          </a>
-        </div>
-      </div>
-      <div class="copyright">
-        <small>© 2023 Todos los derechos reservados Matias Poletto</small>
       </div>
     </footer>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="assets/js/main.js" defer></script>
-    <script src="assets/js/particles.min.js"></script>
-    <script src="assets/js/particulas.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-      AOS.init();
-    </script>
   </body>
 </html>
