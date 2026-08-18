@@ -1,4 +1,9 @@
 <?php
+function sendSecurityHeaders($contentType = 'text/plain; charset=UTF-8') {
+    header('Content-Type: ' . $contentType);
+    header('X-Content-Type-Options: nosniff');
+}
+
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     /* ----------------------------------------------------------
@@ -7,7 +12,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     ---------------------------------------------------------- */
     $hp = $_POST["website"] ?? "";
     if ($hp !== "") {
-        exit; // cortar ejecución silenciosamente
+        sendSecurityHeaders();
+        http_response_code(204);
+        exit;
     }
 
     /* ----------------------------------------------------------
@@ -75,8 +82,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     }
 
     if (!empty($errors)) {
-        // Mostrar errores o redirigir a una página de error
-        echo "Hubo un error con el formulario: <br>" . implode("<br>", $errors);
+        sendSecurityHeaders();
+        http_response_code(400);
+        echo "Hubo un error con el formulario: " . implode(" ", $errors);
         exit;
     }
 
@@ -172,9 +180,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
        Envío del correo
     ---------------------------------------------------------- */
     if (mail($to, $subject, $body, $headers)) {
+        sendSecurityHeaders('text/html; charset=UTF-8');
         header('Location: /');
         exit;
     } else {
+        sendSecurityHeaders();
+        http_response_code(500);
         echo "Hubo un error al enviar el mensaje.";
     }
 }
