@@ -16,7 +16,7 @@ jobs:
           DH_HOST: ${{ secrets.DH_HOST }}
         run: |
           mkdir -p ~/.ssh
-          echo "$DH_SSH_KEY" > ~/.ssh/deploy_key
+          printf '%s\n' "$DH_SSH_KEY" | tr -d '\r' > ~/.ssh/deploy_key
           chmod 600 ~/.ssh/deploy_key
           ssh-keyscan -H "$DH_HOST" >> ~/.ssh/known_hosts
 
@@ -28,5 +28,5 @@ jobs:
         run: |
           rsync -avz \
             --exclude='.git*' --exclude='.vscode' --exclude='*.code-workspace' \
-            -e "ssh -i ~/.ssh/deploy_key" \
+            -e "ssh -i ~/.ssh/deploy_key -o IdentitiesOnly=yes" \
             ./ "$DH_USER@$DH_HOST:$DH_PATH/"
