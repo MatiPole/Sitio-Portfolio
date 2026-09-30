@@ -859,6 +859,34 @@ section {
   display: block;
 }
 
+/* Honeypot: oculto para personas, visible para bots */
+.form-hp {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.form-captcha {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 65px;
+  margin-bottom: 1.5rem;
+}
+
+.form-captcha small {
+  display: none;
+  color: var(--error-color);
+  font-size: 0.875rem;
+  margin-top: 0.5rem;
+}
+
+.form-captcha.error small {
+  display: block;
+}
+
 #submit {
   width: 100%;
   padding: 1rem;

@@ -18,6 +18,71 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     }
 
     /* ----------------------------------------------------------
+       CAPTCHA (Cloudflare Turnstile)
+       La Secret Key NO está en el repo: se lee de la variable de
+       entorno TURNSTILE_SECRET o del archivo .turnstile-secret
+       ubicado fuera de la carpeta pública (un nivel arriba del sitio).
+    ---------------------------------------------------------- */
+    function getTurnstileSecret() {
+        $secret = getenv('TURNSTILE_SECRET');
+        if ($secret) {
+            return trim($secret);
+        }
+        $file = dirname(__DIR__, 2) . '/.turnstile-secret';
+        return is_readable($file) ? trim(file_get_contents($file)) : '';
+    }
+
+    function verifyTurnstile($secret, $token, $ip) {
+        $data = http_build_query([
+            'secret'   => $secret,
+            'response' => $token,
+            'remoteip' => $ip,
+        ]);
+        $url = 'https://challenges.cloudflare.com/turnstile/v0/siteverify';
+
+        if (function_exists('curl_init')) {
+            $ch = curl_init($url);
+            curl_setopt_array($ch, [
+                CURLOPT_POST           => true,
+                CURLOPT_POSTFIELDS     => $data,
+                CURLOPT_RETURNTRANSFER => true,
+                CURLOPT_TIMEOUT        => 10,
+            ]);
+            $response = curl_exec($ch);
+        } else {
+            $response = @file_get_contents($url, false, stream_context_create([
+                'http' => [
+                    'method'  => 'POST',
+                    'header'  => "Content-Type: application/x-www-form-urlencoded\r\n",
+                    'content' => $data,
+                    'timeout' => 10,
+                ],
+            ]));
+        }
+
+        $result = json_decode($response ?: '', true);
+        return is_array($result) && !empty($result['success']);
+    }
+
+    $turnstileSecret = getTurnstileSecret();
+    if ($turnstileSecret === '') {
+        error_log('mail.php: falta configurar la Secret Key de Turnstile.');
+        sendSecurityHeaders();
+        http_response_code(500);
+        echo "Hubo un error al enviar el mensaje.";
+        exit;
+    }
+
+    $turnstileToken = $_POST["cf-turnstile-response"] ?? '';
+    if ($turnstileToken === '' || strlen($turnstileToken) > 2048 ||
+        !verifyTurnstile($turnstileSecret, $turnstileToken, $_SERVER['REMOTE_ADDR'] ?? '')) {
+        sendSecurityHeaders();
+        http_response_code(403);
+        echo "No pudimos verificar que no seas un robot. Por favor, intentá de nuevo.";
+        exit;
+    }
+
+    /* ----------------------------------------------------------
        Sanitización + Validación
     ---------------------------------------------------------- */
     function clean($value) {

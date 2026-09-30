@@ -265,6 +265,10 @@ if (contactForm) {
         return;
       }
 
+      if (!validateCaptcha()) {
+        return;
+      }
+
       $.ajax({
         type: "POST",
         url: "assets/mail.php",
@@ -280,19 +284,46 @@ if (contactForm) {
           $("form")[0].reset();
           // Remover clases de validación
           $(".form-control").removeClass("success error");
+          resetCaptcha();
         },
         error: function (xhr, status, error) {
           swal({
             title: "Error",
-            text: "Hubo un problema al enviar el mensaje. Por favor, inténtalo de nuevo.",
+            text:
+              xhr.status === 403
+                ? "No pudimos verificar que no seas un robot. Por favor, inténtalo de nuevo."
+                : "Hubo un problema al enviar el mensaje. Por favor, inténtalo de nuevo.",
             icon: "error",
             button: "Aceptar",
           });
           console.log("Error submitting the form: ", error);
+          resetCaptcha();
         },
       });
     });
   });
+
+  // CAPTCHA (Cloudflare Turnstile): cada token sirve para un solo envío
+  const captchaContainer = contactForm.querySelector(".form-captcha");
+
+  function validateCaptcha() {
+    const tokenInput = contactForm.querySelector(
+      'input[name="cf-turnstile-response"]'
+    );
+    const isValid = Boolean(tokenInput && tokenInput.value);
+    captchaContainer.classList.toggle("error", !isValid);
+    document.getElementById("captchaError").textContent = isValid
+      ? ""
+      : "Completá la verificación antes de enviar.";
+    return isValid;
+  }
+
+  function resetCaptcha() {
+    captchaContainer.classList.remove("error");
+    if (window.turnstile) {
+      window.turnstile.reset(contactForm.querySelector(".cf-turnstile"));
+    }
+  }
 }
 
 // Botón Ver más/Ver menos para descripción del hero
