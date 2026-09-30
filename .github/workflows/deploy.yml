@@ -1,0 +1,32 @@
+name: Deploy to DreamHost
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Configure SSH
+        env:
+          DH_SSH_KEY: ${{ secrets.DH_SSH_KEY }}
+          DH_HOST: ${{ secrets.DH_HOST }}
+        run: |
+          mkdir -p ~/.ssh
+          echo "$DH_SSH_KEY" > ~/.ssh/deploy_key
+          chmod 600 ~/.ssh/deploy_key
+          ssh-keyscan -H "$DH_HOST" >> ~/.ssh/known_hosts
+
+      - name: Sync files
+        env:
+          DH_HOST: ${{ secrets.DH_HOST }}
+          DH_USER: ${{ secrets.DH_USER }}
+          DH_PATH: ${{ secrets.DH_PATH }}
+        run: |
+          rsync -avz \
+            --exclude='.git*' --exclude='.vscode' --exclude='*.code-workspace' \
+            -e "ssh -i ~/.ssh/deploy_key" \
+            ./ "$DH_USER@$DH_HOST:$DH_PATH/"
