@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" role="img" aria-label="Datto">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0f172a"/>
+      <stop offset="1" stop-color="#1e293b"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#059669"/>
+      <stop offset="1" stop-color="#0ea5e9"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="450" fill="url(#bg)"/>
+  <g opacity=".12" stroke="#94a3b8" stroke-width="1.5">
+    <path d="M0 150h800M0 300h800M266 0v450M533 0v450"/>
+  </g>
+  <circle cx="660" cy="118" r="120" fill="url(#accent)" opacity=".10"/>
+  <g font-family="Inter,Segoe UI,Helvetica,Arial,sans-serif">
+    <rect x="72" y="126" width="96" height="9" rx="4.5" fill="url(#accent)"/>
+    <text x="72" y="248" fill="#f8fafc" font-size="104" font-weight="700">Datto</text>
+    <text x="72" y="304" fill="#cbd5e1" font-size="36" font-weight="500">Consultas a datos empresariales con IA</text>
+    <text x="72" y="352" fill="#94a3b8" font-size="27" font-weight="400">FastAPI · PostgreSQL · pgvector · OpenAI · React</text>
+  </g>
+</svg>
