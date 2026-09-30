@@ -22,6 +22,42 @@ $(".li-burger a").click(function () {
   $(".nav-burger").removeClass("show");
 });
 
+// DESPLEGABLE DE CV (ES / EN)
+const cvDropdowns = document.querySelectorAll(".cv-dropdown");
+
+function closeCvDropdowns(except) {
+  cvDropdowns.forEach((dropdown) => {
+    if (dropdown === except) return;
+    dropdown.classList.remove("open");
+    dropdown
+      .querySelector(".cv-dropdown-toggle")
+      .setAttribute("aria-expanded", "false");
+  });
+}
+
+cvDropdowns.forEach((dropdown) => {
+  const toggle = dropdown.querySelector(".cv-dropdown-toggle");
+
+  toggle.addEventListener("click", (e) => {
+    e.stopPropagation();
+    const isOpen = dropdown.classList.toggle("open");
+    toggle.setAttribute("aria-expanded", String(isOpen));
+    closeCvDropdowns(dropdown);
+  });
+
+  dropdown.querySelectorAll(".cv-dropdown-menu a").forEach((link) => {
+    link.addEventListener("click", () => closeCvDropdowns());
+  });
+});
+
+document.addEventListener("click", (e) => {
+  if (!e.target.closest(".cv-dropdown")) closeCvDropdowns();
+});
+
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape") closeCvDropdowns();
+});
+
 // Smooth scroll para enlaces de navegación
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', function (e) {

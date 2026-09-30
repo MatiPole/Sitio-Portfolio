@@ -152,15 +152,36 @@
           <li><a href="#habilidades">Habilidades</a></li>
           <li><a href="#proyectos">Proyectos</a></li>
           <li><a href="#contacto">Contacto</a></li>
-          <li class="curriculum-container">
-            <a
-              class="curriculum-dl"
-              href="assets/cv/CV-Matias-Poletto.pdf"
-              download
-              rel="noopener noreferrer"
-              target="_blank"
-              >Descargar CV</a
+          <li class="curriculum-container cv-dropdown">
+            <button
+              type="button"
+              class="curriculum-dl cv-dropdown-toggle"
+              aria-haspopup="true"
+              aria-expanded="false"
             >
+              Descargar CV <span class="cv-dropdown-caret" aria-hidden="true"></span>
+            </button>
+            <ul class="cv-dropdown-menu">
+              <li>
+                <a
+                  href="assets/cv/CV-Matias-Poletto.pdf"
+                  download
+                  rel="noopener noreferrer"
+                  target="_blank"
+                  >Español</a
+                >
+              </li>
+              <li>
+                <a
+                  href="assets/cv/CV-Matias-Poletto-EN.pdf"
+                  download
+                  rel="noopener noreferrer"
+                  target="_blank"
+                  hreflang="en"
+                  >English</a
+                >
+              </li>
+            </ul>
           </li>
         </ul>
       </nav>
@@ -196,23 +217,37 @@
             </div>
             <div class="hero-cta">
               <a href="#contacto" class="btn-primary">Contactar</a>
-              <a
-                href="assets/cv/CV-Matias-Poletto.pdf"
-                download
-                class="btn-secondary"
-                target="_blank"
-                rel="noopener noreferrer"
-                >Descargar CV</a
-              >
-              <a
-                href="assets/cv/CV-Matias-Poletto-EN.pdf"
-                download
-                class="btn-secondary"
-                target="_blank"
-                rel="noopener noreferrer"
-                hreflang="en"
-                >CV in English</a
-              >
+              <div class="cv-dropdown cv-dropdown-hero">
+                <button
+                  type="button"
+                  class="btn-secondary cv-dropdown-toggle"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                >
+                  Descargar CV <span class="cv-dropdown-caret" aria-hidden="true"></span>
+                </button>
+                <ul class="cv-dropdown-menu">
+                  <li>
+                    <a
+                      href="assets/cv/CV-Matias-Poletto.pdf"
+                      download
+                      rel="noopener noreferrer"
+                      target="_blank"
+                      >Español</a
+                    >
+                  </li>
+                  <li>
+                    <a
+                      href="assets/cv/CV-Matias-Poletto-EN.pdf"
+                      download
+                      rel="noopener noreferrer"
+                      target="_blank"
+                      hreflang="en"
+                      >English</a
+                    >
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
         </div>
