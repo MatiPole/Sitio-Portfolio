@@ -20,6 +20,14 @@ jobs:
           chmod 600 ~/.ssh/deploy_key
           ssh-keyscan -H "$DH_HOST" >> ~/.ssh/known_hosts
 
+      - name: Check key shape
+        run: |
+          echo "lines: $(wc -l < ~/.ssh/deploy_key)"
+          echo "first: $(head -1 ~/.ssh/deploy_key | cut -c1-40)"
+          echo "last: $(tail -1 ~/.ssh/deploy_key | cut -c1-40)"
+          echo "longest line: $(awk '{ if (length($0)>m) m=length($0) } END {print m}' ~/.ssh/deploy_key)"
+          ssh-keygen -y -f ~/.ssh/deploy_key > /dev/null && echo "key OK" || echo "key INVALID"
+
       - name: Sync files
         env:
           DH_HOST: ${{ secrets.DH_HOST }}
