@@ -18,7 +18,12 @@ jobs:
           mkdir -p ~/.ssh
           printf '%s\n' "$DH_SSH_KEY" | tr -d '\r' > ~/.ssh/deploy_key
           chmod 600 ~/.ssh/deploy_key
-          ssh-keyscan -H "$DH_HOST" >> ~/.ssh/known_hosts
+          for i in 1 2 3 4 5; do
+            ssh-keyscan -T 15 -H "$DH_HOST" >> ~/.ssh/known_hosts && [ -s ~/.ssh/known_hosts ] && break
+            echo "ssh-keyscan falló (intento $i), reintentando..."
+            sleep 5
+          done
+          [ -s ~/.ssh/known_hosts ] || { echo "No se pudo obtener la host key de $DH_HOST"; exit 1; }
 
       - name: Check key shape
         run: |
